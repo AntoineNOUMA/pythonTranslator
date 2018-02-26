@@ -85,7 +85,7 @@ Cliquez sur **Enable API**. Patientez quelques instant le temps que l'API soit a
 
 Ensuite, cliquez sur l'engrenage en haut à droite puis sur **Project billing settings**.
 
-Remplissez le formulaire de paiement puis cliquez sur **Accept and start free trial**. Vous serez redirigé vers la fenêtre **Developers Console**
+Remplissez le formulaire de paiement puis cliquez sur **Accept and start free trial**. Vous serez redirigé vers la fenêtre **Developers Console**.
 
 Dans le menu, cliquez sur **APIs & auth** puis sur **Credentials**.
 
