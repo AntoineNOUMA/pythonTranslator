@@ -27,11 +27,6 @@ def debug(my_text):
         print my_text
 
 try:
-    import config
-except ImportError:
-    debug("Le module config n'a pas été trouvé.")
-
-try:
     from bottle import get
 except ImportError:
     debug("Le module get de bottle n'a pas été trouvé.")
@@ -62,6 +57,11 @@ except ImportError:
     debug("Le module run de bottle n'a pas été trouvé.")
 
 try:
+    import config
+except ImportError:
+    debug("Le module config n'a pas été trouvé.")
+
+try:
     import csv
 except ImportError:
     debug("Le module csv n'a pas été trouvé.")
@@ -72,11 +72,6 @@ except ImportError:
     debug("Le module datetime n'a pas été trouvé.")
 
 try:
-    import requests
-except ImportError:
-    debug("Le module requests n'a pas été trouvé.")
-
-try:
     import json
 except ImportError:
     debug("Le module json n'a pas été trouvé.")
@@ -85,6 +80,11 @@ try:
     import os
 except ImportError:
     debug("Le module os n'a pas été trouvé.")
+
+try:
+    import requests
+except ImportError:
+    debug("Le module requests n'a pas été trouvé.")
 
 try:
     import sys
