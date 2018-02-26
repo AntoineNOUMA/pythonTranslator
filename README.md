@@ -105,7 +105,8 @@ Le traducteur est maintenant opérationel!
 |-----------|---------------|
 | csv       | Utilisé pour extraire puis pour afficher les données de la traduction au format CSV dans un but d'historisation.|
 | datetime  | Utilisé pour obtenir la date et l'heure de la traduction.|
-| random    | Utilisé pour générer un nombre aléatoire.|
+| json      | Utilisé pour gérer le format json.|
+| os        | Utilisé pour pour générer un nombre aléatoire.|
 | sys       | Utilisé pour géré l'encodage (caractères spéciaux).|
 
 <a name="liste_non_natif"></a>
@@ -115,6 +116,7 @@ Le traducteur est maintenant opérationel!
 | Paquets | Description |
 |---------|-------------|
 | bottle  | Utilisé comme framework d'application web.|
+| config  | Utilisé pour accéder à la clé de l'API Google Translate.|
 | requests| Utilisé pour accéder au differentes variables retournée par les pages.|
 
 <a name="entrees"></a>
