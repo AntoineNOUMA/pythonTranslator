@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Traducteur: Documentation technique</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Traducteur
+   </div>
+   <div id="projectbrief">Ce web service écrit en Python vous permet de traduire une chaîne de caractère saisi au clavier dans la langue de votre choix.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Documentation technique </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h2>Table des matières</h2>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#dependances">Dépendances et pré-requis de l'application</a><ul>
+<li><a href="#procedure">Procédure d'installation des composants de l'application</a></li>
+<li><a href="#liste_natif">Liste exhaustive des paquets Python à installer</a></li>
+<li><a href="#liste_non_natif">Liste exhaustive des paquets Python non natif à installer</a></li>
+</ul>
+</li>
+<li><a href="#entrees">Paramètres en entrée</a></li>
+<li><a href="#sorties">Sortie possible</a></li>
+<li><a href="#erreurs">Gestion des erreurs</a></li>
+<li><a href="#architecture">Schéma de l'architecture</a><ul>
+<li><a href="#diagramme">Diagramme des flux</a></li>
+<li><a href="#matrice">Matrice des flux</a></li>
+</ul>
+</li>
+</ul>
+<p><a class="anchor" id="description"></a></p>
+<h2>Description</h2>
+<p>Ce web service écrit en Python vous permet de traduire une chaîne de caractère saisi au clavier dans la langue de votre choix.</p>
+<p>Pour ce faire, nous vous demandons de remplir un formulaire contenant 2 entrées : </p><pre class="fragment">- Une entrée pour saisir une chaîne de caractère.
+- Une entrée pour selectionner la langue de traduction.
+</pre><p>Une fois que vous avez saisie votre chaîne de caractère, que vous avez selectionné la langue de traduction et que vous avez cliqué sur traduire, ce web service va allé intéroger l'API Google translate en lui envoyant en paramètre dans une URL la chaîne de caractère que vous avez saisie ainsi que la langue de traduction. Si la requête à bien été prise en compte par l'API de Google, elle renvoie au web service une réponse contenant le texte traduit en format JSON.</p>
+<p>Le web service récupère donc cette information et enregistre : la date de la traduction, l'heure de la traduction, la chaîne de caractère saisie, la langue de traduction ainsi que la chaîne de caractère traduite dans un fichier CSV. Ceci dans le but de vous restituer la traduction de votre saisie mais aussi de vous fournir un historique de toute vos traductions.</p>
+<p>Par suite, le web service vous redirige vers le formulaire. Ce dernier vous ré-affiche le formulaire de traduction ainsi que les informations contenues dans le fichier CSV ce qui en somme vous donnera l'historique de vos traductions et vous offrira la possibilité d'effectuer plusieurs traductions successive.</p>
+<p><a class="anchor" id="dependances"></a></p>
+<h2>Dépendances et pré-requis de l'application</h2>
+<p><a class="anchor" id="procedure"></a></p>
+<h3>Procédure d'installation des composants de l'application</h3>
+<p>Dans ce qui suit, vous allez devoir faire des installations via le terminal. Si vous êtes relié à un réseaux d'entreprise, il se peut que certaines commandes notamment pour réaliser un téléchargement, ne fonctionne pas. C'est pourquoi je vous conseil de débrancher le câble ethernet de votre PC est de vous mettre en partage de connexion via votre mobile durant la phase d'installation.</p>
+<p>Pour faire fonctionner ce web service écris en Python, vous avez besoin premièrement de <b>Python</b>!</p>
+<p>Il existe 2 versions de Python, Python 2 et Python 3. Le code de ce web service fût codé et testé sous Python 2, il est donc garantie qu'il fonctionne sous cette version.</p>
+<p>Pour savoir si Python est déjà installé sur votre machine, il suffit d'ouvrir un termminal et d'exécuter la commande <code>python</code>. Si le terminal vous affiche quelques chose de ce style :</p>
+<p><em>Python 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 20:19:30) [MSC v.1500 32 bit (Intel)] on win32</em></p>
+<p><em>Type "help", "copyright", "credits" or "license" for more information.</em></p>
+<p>c'est que Python est déjà installé sur votre machine!</p>
+<p>Si ce n'est pas la cas ou si vous souhaitez installer la dernière version de Python 2 ou Python 3, cliquez sur le lien suivant : <b><a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></b>.</p>
+<p>Une fois Python installé, vous avez besoin d'installer plusieurs paquets Python dont la liste exhaustive avec une descriptinon succinte de chacun d'eux se trouve dans les deux tableaux ci-dessous. Le premier regroupe les paquets Python natif c'est à dire ceux que l'on peux importer en ayant juste installé Python. Le second regroupe les paquets Python non natif, c'est à dire qu'il faut les installer via pip avant de les importer.</p>
+<p>Pour installer ces paquets non natif, vous utiliserez la commande <code>pip install</code> nomDuPaquet dans le terminal. Pour que cette dernière fonctionnne, vous devez préalablement installer le gestionnaire de paquets <b>pip</b>!</p>
+<p>Pip est déjà installé si vous travaillez dans un environnement virtuel créé par virtualenv ou pyvenv ou si vous utilisez des binaires Python à partir des versions 2.7.9 et 3.4 téléchargés depuis python.org, mais vous devrez mettre à jour pip!</p>
+<p>Pour installer pip, il suffit de se rendre sur la page de téléchargement suivante : <b><a href="https://pip.pypa.io/en/stable/installing/">https://pip.pypa.io/en/stable/installing/</a></b>. Une fois le téléchargement éffectuer, exécuter la commande suivante dans votre terminal : <code>python get-pip.py</code></p>
+<p><a class="anchor" id="liste_natif"></a></p>
+<h3>Liste exhaustive des paquets Python natif à installer</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Paquets  </th><th class="markdownTableHeadNone">Description   </th></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">csv  </td><td class="markdownTableBodyNone">Utilisé pour extraire puis pour afficher les données de la traduction au format CSV dans un but d'historisation.   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone">datetime  </td><td class="markdownTableBodyNone">Utilisé pour obtenir la date et l'heure de la traduction.   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">random  </td><td class="markdownTableBodyNone">Utilisé pour générer un nombre aléatoire.   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone">sys  </td><td class="markdownTableBodyNone">Utilisé pour géré l'encodage (caractères spéciaux).   </td></tr>
+</table>
+<p><a class="anchor" id="liste_non_natif"></a></p>
+<h3>Liste exhaustive des paquets Python non natif à installer</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Paquets  </th><th class="markdownTableHeadNone">Description   </th></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">bottle  </td><td class="markdownTableBodyNone">Utilisé comme framework d'application web.   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone">requests  </td><td class="markdownTableBodyNone">Utilisé pour accéder au differentes variables retournée par les pages.   </td></tr>
+</table>
+<p><a class="anchor" id="entrees"></a></p>
+<h3>Paramètre en entrée</h3>
+<ul>
+<li>Une chaîne de caractères saisie par l'utilisateur sur "/formulaire".</li>
+<li>Une langue de traduction choisie dans la liste déroulante par l'utilisateur sur "/formulaire".</li>
+</ul>
+<p><a class="anchor" id="sorties"></a></p>
+<h3>Sortie possible</h3>
+<ul>
+<li>Si tous s'exécute correctement<ul>
+<li>Le formulaire pour effectuer une nouvelle traduction.</li>
+<li>Un tableau HTML composé :<ul>
+<li>de la date de la traduction.</li>
+<li>de l'heure de la traduction.</li>
+<li>du texte original.</li>
+<li>de la langue de traduction.</li>
+<li>du texte traduit.</li>
+<li>de l'historique des traductions.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Si la réponse du serveur de Google est differente de 200 :<ul>
+<li>Un message d'erreur.</li>
+<li>Le formulaire.</li>
+</ul>
+</li>
+<li>Si vous cliquez sur "traduire" sans avoir préalablement saisie une chaine de caractère :<ul>
+<li>Un message d'erreur.</li>
+<li>Le formulaire.</li>
+</ul>
+</li>
+</ul>
+<p><a class="anchor" id="erreurs"></a></p>
+<h3>Gestion des erreurs</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Erreur  </th><th class="markdownTableHeadNone">Gestion de l'erreur   </th></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Envoie d'une chaîne de caractères vide dans "/formulaire"  </td><td class="markdownTableBodyNone">On renvoie l'utilisateur vers "/formulaire" avec le message suivant : <em>Erreur : veuillez saisir quelque chose à traduire.</em>   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Réponse du serveur de Google differente de 200  </td><td class="markdownTableBodyNone">On renvoie à l'utilisateur un message d'erreur : <em>Erreur : connexion à l'API Google translate impossible.</em>   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Time out  </td><td class="markdownTableBodyNone">On renvoie à l'utilisateur un message d'erreur : <em>Erreur : à faire</em>   </td></tr>
+</table>
+<p><a class="anchor" id="architecture"></a></p>
+<h3>Schéma de l'architecture </h3>
+<p>dépendances et pré-requis</p>
+<ul>
+<li>paramètres en entrée et les sorties possibles</li>
+<li>gestion des erreurs (paramètres incorrects, erreurs réseau tels que time out, absence de réponse du serveur Google, panne réseau etc...)</li>
+<li>schéma de l'architecture : use case, diagramme de séquence, diagramme d'activité et matrice des flux reseaux (URL et ports en entrée et en sortie, en gros, qui communique avec qui/quoi)</li>
+</ul>
+<p><a class="anchor" id="diagramme"></a></p>
+<h4>Diagramme des flux</h4>
+<div class="image">
+<img src="https://github.com/AntoineNOUMA/pythonTranslator/Capture.png" alt="Diagramme des flux" title="Diagramme des flux"/>
+</div>
+<p><a class="anchor" id="matrice"></a></p>
+<h4>Matrice des flux</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Acteurs  </th><th class="markdownTableHeadCenter">utilisateur  </th><th class="markdownTableHeadCenter">formulaire () (method="get")  </th><th class="markdownTableHeadCenter">formulaire () (method="post")  </th><th class="markdownTableHeadCenter">mon_web_service ()  </th><th class="markdownTableHeadCenter">api_google_translate   </th></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">utilisateurs  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">Remplir formulaire  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">-   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyCenter"><a class="el" href="namespacetraducteur.html#a4e29f2735da51feae338d67b7c41cf66">formulaire1()</a> (method="get")  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">Envoyer informations_formulaire  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">-   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter"><a class="el" href="namespacetraducteur.html#a105bcea95704c3a918f3cb68aadaeb39">formulaire2()</a> (method="post")  </td><td class="markdownTableBodyCenter">Retourner formulaire  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">Envoyer informations_formulaire  </td><td class="markdownTableBodyCenter">-   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowEven">
+<td class="markdownTableBodyCenter"><a class="el" href="namespacetraducteur.html#a6ee2ff2277437d3ae0e69dbc8c1546b2">mon_web_service()</a>  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">Afficher information_mon_web_service  </td><td class="markdownTableBodyCenter">Extraire information JSON + Ecrire informations dans CSV  </td><td class="markdownTableBodyCenter">Envoyer information_mon_web_service   </td></tr>
+<tr class="markdownTableBody" class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">api_google_translate  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">-  </td><td class="markdownTableBodyCenter">Envoyer information_api  </td><td class="markdownTableBodyCenter">-   </td></tr>
+</table>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>
