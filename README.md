@@ -64,7 +64,7 @@ Pip est déjà installé si vous travaillez dans un environnement virtuel créé
 Pour installer pip, il suffit de se rendre sur la page de téléchargement suivante : **https://pip.pypa.io/en/stable/installing/**. Une fois le téléchargement éffectuer, exécuter la commande suivante dans votre terminal : `python get-pip.py`
 
 Ce web service intéragit avec l'API de Google Translate. Pour que cette intéraction soit possible, il faut que vous vous munissiez d'une clé d'API.
-Pour commencer, il faut créer un fichier **config.py** et copier coller ce bout de code dedans `api_key = "clé"`. Ensuite, enregistrez ce fichier dans le dossier où il y a le programme principal **traducteur.py**. 
+Pour commencer, il faut créer un fichier **config.py** et copier coller ce bout de code dedans `api_key = "clé"`. Ensuite, enregistrez ce fichier dans le dossier où il y a le programme principal **traducteur.py**.
 Dans le bout de code donné précedement, il faut biensur que le mot `clé` soit remplacé par la véritable clé de l'API Google Translate. Pour celà, vous devez préalablement avoir un compte Gmail. Si vous n'en avez pas, vous pouvez en créer un en cliquant sur ce lien **https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ltmpl=default**.
 Une fois votre compte créé, cliquez sur ce lien en vous identifiant avec votre compte Gmail **https://console.developers.google.com/cloud-resource-manager?authuser=0**.
 Ensuite, cliquez sur **Create Project**.
