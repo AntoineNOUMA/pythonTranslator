@@ -26,7 +26,6 @@ def debug(my_text):
     if debug:
         print my_text
 
-
 try:
     from bottle import get, post, redirect, request, route, run
 except ImportError, e:
