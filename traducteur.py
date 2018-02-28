@@ -26,71 +26,25 @@ def debug(my_text):
     if debug:
         print my_text
 
-try:
-    from bottle import get
-except ImportError:
-    debug("Le module get de bottle n'a pas été trouvé.")
 
 try:
-    from bottle import post
-except ImportError:
-    debug("Le module post de bottle n'a pas été trouvé.")
-
+    from bottle import get, post, redirect, request, route, run
+except ImportError, e:
+    debug("Bottle error")
+    debug(e)
+        
 try:
-    from bottle import redirect
-except ImportError:
-    debug("Le module redirect de bottle n'a pas été trouvé.")
-
-try:
-    from bottle import request
-except ImportError:
-    debug("Le module request de bottle n'a pas été trouvé.")
-
-try:
-    from bottle import route
-except ImportError:
-    debug("Le module route de bottle n'a pas été trouvé.")
-
-try:
-    from bottle import run
-except ImportError:
-    debug("Le module run de bottle n'a pas été trouvé.")
+    import csv, datetime, json, os, requests, sys
+except ImportError, e:
+    debug("Native error")
+    debug(e)
 
 try:
     import config
-except ImportError:
-    debug("Le module config n'a pas été trouvé.")
-
-try:
-    import csv
-except ImportError:
-    debug("Le module csv n'a pas été trouvé.")
-
-try:
-    import datetime
-except ImportError:
-    debug("Le module datetime n'a pas été trouvé.")
-
-try:
-    import json
-except ImportError:
-    debug("Le module json n'a pas été trouvé.")
-
-try:
-    import os
-except ImportError:
-    debug("Le module os n'a pas été trouvé.")
-
-try:
-    import requests
-except ImportError:
-    debug("Le module requests n'a pas été trouvé.")
-
-try:
-    import sys
-except ImportError:
-    debug("Le module sys n'a pas été trouvé.")
-
+except ImportError, e:
+    debug("Intern error")
+    debug(e)
+        
 #Permet de gérer l'encodage utf-8 pour éviter les problèmes d'accents etc...
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -108,9 +62,9 @@ TOKEN = ""
 #Route par défaut
 @route('/')
 
-@route('/formulaire/')
-@get('/formulaire')
-def formulaire1():
+@route('/form/')
+@get('/form')
+def show_form():
     """[Fonction générant un formulaire en méthode get avec une case pour saisir du texte,
     une liste déroulante pour selectionner la langue à traduire et un
     bouton pour envoyer l'information.]
@@ -120,9 +74,9 @@ def formulaire1():
         route
     """
 
-    open("historique.csv", "a")
+    open("history.csv", "a")
     return'''
-    <form action="/formulaire" method="post">
+    <form action="/form" method="post">
        
         Votre texte à traduire: <input name="texte" type="text" />
 
@@ -139,11 +93,11 @@ def formulaire1():
 
     </form>''' + '''
     
-    Historique de vos traduction :''' + affichage()
+    Historique de vos traduction :''' + show_history()
 
-@route('/formulaire/')
-@post('/formulaire')
-def formulaire2():
+@route('/form/')
+@post('/form')
+def post_form():
     """[Fonction vérifiant le formulaire en méthode post avec une case pour saisir du texte,
     une liste déroulante pour selectionner la langue à traduire et un
     bouton pour envoyer l'information.]
@@ -159,7 +113,7 @@ def formulaire2():
     if request.forms.get('texte') == "":
 
         return "Erreur : veuillez saisir quelque chose à traduire.<br><br>" + '''
-        <form action="/formulaire" method="post">
+        <form action="/form" method="post">
                 
             Votre texte à traduire: <input name="texte" type="text" />
 
@@ -176,7 +130,7 @@ def formulaire2():
 
         </form>''' + '''
         
-        Historique de vos traduction :''' + affichage()
+        Historique de vos traduction :''' + show_history()
 
     global TOKEN
     TOKEN = os.urandom(24).encode('hex')
@@ -184,10 +138,10 @@ def formulaire2():
     DICT1 = {'texte':'', 'langue':''}
     DICT1['texte'] = request.POST['texte']
     DICT1['langue'] = request.POST['langue']
-    return redirect("/mon_web_service/"+str(TOKEN))
+    return redirect("/translator/"+str(TOKEN))
 
-@route('/mon_web_service/<token>')
-def mon_web_service(token):
+@route('/translator/<token>')
+def translator(token):
     """[Fonction qui interroge l'API Google translate.
     Récupération des informations au format JSON.]
     
@@ -200,7 +154,7 @@ def mon_web_service(token):
     Returns:
         [str] -- [Message d'erreur si les deux clés chiffrées ne corespondent pas]
         [str] -- [Message d'erreur si il y à une erreur de connexion avec l'API Google translate]
-        [str] -- [Redirection vers formulaire]
+        [str] -- [Redirection vers form]
     """
 
     resp1 = request.url_args['token']
@@ -209,14 +163,13 @@ def mon_web_service(token):
 
     global DICT2
 
-    DICT2 = {'date':'', 'heure':'', 'texte_original':'', 'langue':'', 'texte_traduit':''}
+    DICT2 = {'date':'', 'texte_original':'', 'langue':'', 'texte_traduit':''}
 
-    date = datetime.datetime.now()
+    date = datetime.datetime.now().isoformat()
 
     DICT2['texte_original'] = DICT1['texte']
     DICT2['langue'] = DICT1['langue']
-    DICT2['date'] = str(date.day) + '-' + str(date.month) + '-' + str(date.year)
-    DICT2['heure'] = str(date.hour) + ':' + str(date.minute) + ':' + str(date.second)
+    DICT2['date'] = date
 
     url = "https://translation.googleapis.com/language/translate/v2?key="
     key = config.api_key
@@ -225,34 +178,34 @@ def mon_web_service(token):
 
     if resp2.status_code != 200:
 
-        return "Erreur : connexion à l'API Google translate impossible." + formulaire1()
+        return "Erreur : connexion à l'API Google translate impossible." + show_form()
 
     traduction_json = resp2.json()
     DICT2['texte_traduit'] = traduction_json['data']['translations'][0]['translatedText']
-    ecriture_csv()
+    write_history()
     DICT1['texte'] = ""
     DICT1['langue'] = ""
 
-    return redirect("/formulaire")
+    return redirect("/form")
 
-def ecriture_csv():
+def write_history():
     """[Fonction qui permet l'écriture dans un fichier csv.]
     """
 
-    with open("historique.csv", "a") as csvfile:
+    with open("history.csv", "a") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', dialect="excel")
-        writer.writerow([DICT2['date'], DICT2['heure'], DICT2['texte_original'],
+        writer.writerow([DICT2['date'], DICT2['texte_original'],
                          DICT2['langue'], DICT2['texte_traduit']])
         csvfile.close()
 
-def affichage():
+def show_history():
     """[Fonction qui permet l'affichage du fichier csv.]
     
     Returns:
         [str] -- [Chaîne de caractère contenant toutes les informations de la traduction]
     """
 
-    filename = 'historique.csv'
+    filename = 'history.csv'
     with open(filename, 'rb') as csvfile:
         reader = csv.reader(csvfile)
         try:
