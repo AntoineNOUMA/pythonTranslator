@@ -7,7 +7,7 @@
   * [How to install application components](#process)
   * [Exhaustive list of native Python packages to install](#native_list)
   * [Exhaustive list of non-native Python packages to install](#non_native_list)
-* [Input parameteres](#inputs)
+* [Input parameters](#inputs)
 * [Possible outputs](#outputs)
 * [Error management](#errors)
 * [Architecture diagram](#architecture)
