@@ -193,8 +193,3 @@ def show_history():
             sys.exit('file %s, line %d: %s' % (filename, reader.line_num, csverror))
 
 run(host='localhost', port=8080, debug=True)
-"""
-TO DO
-- Optimize loops (complexity)
-- Do some try except on the streams (get, urlopen etc ...)
-"""

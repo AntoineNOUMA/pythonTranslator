@@ -157,12 +157,6 @@ The translator is now operational!
 
 ### Architecture diagram <a id="architecture"></a>
 
-dépendances et pré-requis
-
-* paramètres en entrée et les sorties possibles
-* gestion des erreurs (paramètres incorrects, erreurs réseau tels que time out, absence de réponse du serveur Google,  panne réseau etc...)
-* schéma de l'architecture : use case, diagramme de séquence, diagramme d'activité et matrice des flux reseaux (URL et ports en entrée et en sortie, en gros, qui communique avec qui/quoi)
-
 <a name="chart"></a>
 
 #### Flow chart
