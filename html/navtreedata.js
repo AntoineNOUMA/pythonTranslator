@@ -23,8 +23,8 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "Traducteur", "index.html", [
-    [ "Documentation technique", "md__r_e_a_d_m_e.html", null ],
+  [ "Translator", "index.html", [
+    [ "Technical documentation", "md__r_e_a_d_m_e.html", null ],
     [ "Espaces de nommage", "namespaces.html", [
       [ "Liste des espaces de nommage", "namespaces.html", "namespaces_dup" ],
       [ "Membres de l'espace de nommage", "namespacemembers.html", [
@@ -41,7 +41,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"files.html"
+"config_8py.html"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

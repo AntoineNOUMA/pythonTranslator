@@ -1,4 +1,5 @@
 var namespaces_dup =
 [
-    [ "traducteur", "namespacetraducteur.html", null ]
+    [ "config", "namespaceconfig.html", null ],
+    [ "translator", "namespacetranslator.html", null ]
 ];

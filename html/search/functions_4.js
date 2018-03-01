@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mon_5fweb_5fservice',['mon_web_service',['../namespacetraducteur.html#a6ee2ff2277437d3ae0e69dbc8c1546b2',1,'traducteur']]]
+  ['write_5fhistory',['write_history',['../namespacetranslator.html#a774633a53717d6adf90ee07fa458762a',1,'translator']]]
 ];

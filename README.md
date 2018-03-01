@@ -1,164 +1,161 @@
-# Documentation technique
+# Technical documentation
 
-## Table des matières
+## Table of Contents
 
 * [Description](#description)
-* [Dépendances et pré-requis de l'application](#dependances)
-  * [Procédure d'installation des composants de l'application](#procedure)
-  * [Liste exhaustive des paquets Python à installer](#liste_natif)
-  * [Liste exhaustive des paquets Python non natif à installer](#liste_non_natif)
-* [Paramètres en entrée](#entrees)
-* [Sortie possible](#sorties)
-* [Gestion des erreurs](#erreurs)
-* [Schéma de l'architecture](#architecture)
-  * [Diagramme des flux](#diagramme)
-  * [Matrice des flux](#matrice)
+* [Dependencies and prerequisites of the application](#dependancies)
+  * [How to install application components](#process)
+  * [Exhaustive list of native Python packages to install](#native_list)
+  * [Exhaustive list of non-native Python packages to install](#non_native_list)
+* [Input parameteres](#inputs)
+* [Possible outputs](#outputs)
+* [Error management](#errors)
+* [Architecture diagram](#architecture)
+  * [Flow chart](#chart)
+  * [Flow matrix](#matrix)
 
 <a name="description"></a>
 
 ## Description
 
-Ce web service écrit en Python vous permet de traduire une chaîne de caractère saisi au clavier dans la langue de votre choix.
+This web service written in Python allows you to translate a string into the language of your choice.
 
-Pour ce faire, nous vous demandons de remplir un formulaire contenant 2 entrées :
+To do this, we ask you to fill out a form containing 2 inputs:
 
-    - Une entrée pour saisir une chaîne de caractère.
-    - Une entrée pour selectionner la langue de traduction.
+    - An input to write a string.
+    - An input to select the language of translation.
 
-Une fois que vous avez saisie votre chaîne de caractère, que vous avez selectionné la langue de traduction et que vous avez cliqué sur traduire, ce web service va allé intéroger l'API Google translate en lui envoyant en paramètre dans une URL la chaîne de caractère que vous avez saisie ainsi que la langue de traduction. Si la requête à bien été prise en compte par l'API de Google, elle renvoie au web service une réponse contenant le texte traduit en format JSON.
+Once you have written your string, selected the language of translation and clicked on translate, this web service will interoperate with the Google translate API by sending as a parameter in the URL the string you have written and the language of translation. If the request has been taken by the Google API, it sends back to the web service a response containing the translated text in a JSON format.
 
-Le web service récupère donc cette information et enregistre : la date de la traduction, l'heure de la traduction, la chaîne de caractère saisie, la langue de traduction ainsi que la chaîne de caractère traduite dans un fichier CSV. Ceci dans le but de vous restituer la traduction de votre saisie mais aussi de vous fournir un historique de toute vos traductions.
+The web service retrieves this information and records: the date and time of the translation, the string written, the language of translation and the string translated into a CSV file. This in order to give you the translation of your input but also to provide you an history of all your translations.
 
-Par suite, le web service vous redirige vers le formulaire. Ce dernier vous ré-affiche le formulaire de traduction ainsi que les informations contenues dans le fichier CSV ce qui en somme vous donnera l'historique de vos traductions et vous offrira la possibilité d'effectuer plusieurs traductions successive.
+As a result, the web service redirects you to the form. The latter re-displays the translation form as well as the information contained in the CSV file which will give you the history of your translations and offer you the possibility to perform several successive translations.
 
-<a name="dependances"></a>
+<a name="dependancies"></a>
 
-## Dépendances et pré-requis de l'application
+## Dependencies and prerequisites of the application
 
-<a name="procedure"></a>
+<a name="process"></a>
 
-### Procédure d'installation des composants de l'application
+### How to install application components
 
-Dans ce qui suit, vous allez devoir faire des installations via le terminal. Si vous êtes relié à un réseaux d'entreprise, il se peut que certaines commandes notamment pour réaliser un téléchargement, ne fonctionne pas. C'est pourquoi je vous conseil de débrancher le câble ethernet de votre PC est de vous mettre en partage de connexion via votre mobile durant la phase d'installation.
+In what follows, you will have to make installations via the terminal. If you are connected to a corporate network, some commands, especially for downloading, may not work. That's why I advise you to disconnect the ethernet cable from your PC and put you in connection sharing via your mobile during the installation phase.
 
-Pour faire fonctionner ce web service écris en Python, vous avez besoin premièrement de **Python**!
+To make this web service written in Python work, you need **Python** first!
 
-Il existe 2 versions de Python, Python 2 et Python 3. Le code de ce web service fût codé et testé sous Python 2, il est donc garantie qu'il fonctionne sous cette version.
+There are 2 versions of Python, Python 2 and Python 3. The code of this web service was coded and tested under Python 2, so it is guaranteed that it works in this version.
 
-Pour savoir si Python est déjà installé sur votre machine, il suffit d'ouvrir un termminal et d'exécuter la commande `python`. Si le terminal vous affiche quelques chose de ce style :
+To find out if Python is already installed on your machine, just open a terminal and run the `python` command. If the terminal shows you something like this:
 
 _Python 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 20:19:30) [MSC v.1500 32 bit (Intel)] on win32_
 
 _Type "help", "copyright", "credits" or "license" for more information._
 
-c'est que Python est déjà installé sur votre machine!
+Python is already installed on your machine!
 
-Si ce n'est pas la cas ou si vous souhaitez installer la dernière version de Python 2 ou Python 3, cliquez sur le lien suivant : **https://www.python.org/downloads/**.
+If this is not the case, or if you want to install the latest version of Python 2 or Python 3, click on the following link: <https://www.python.org/downloads/>.
 
-Une fois Python installé, vous avez besoin d'installer plusieurs paquets Python dont la liste exhaustive avec une descriptinon succinte de chacun d'eux se trouve dans les deux tableaux ci-dessous. Le premier regroupe les paquets Python natif c'est à dire ceux que l'on peux importer en ayant juste installé Python. Le second regroupe les paquets Python non natif, c'est à dire qu'il faut les installer via pip avant de les importer.
+Once Python is installed, you need to install several Python packages whose exhaustive list with a short description of each one is in the two tables below. The first group contains native Python packages, ie those that can be imported by just installing Python. The second one groups, non-native Python packages, ie they must be installed via pip before importing them.
 
-Pour installer ces paquets non natif, vous utiliserez la commande `pip install` nomDuPaquet dans le terminal. Pour que cette dernière fonctionnne, vous devez préalablement installer le gestionnaire de paquets **pip**!
+To install these non-native packages, you will use the `pip install` packageName command in the terminal. In order for this to work, you must first install the **pip**!
 
-Pip est déjà installé si vous travaillez dans un environnement virtuel créé par virtualenv ou pyvenv ou si vous utilisez des binaires Python à partir des versions 2.7.9 et 3.4 téléchargés depuis python.org, mais vous devrez mettre à jour pip!
+Pip is already installed if you are working in a virtual environment created by virtualenv or pyvenv or if you are using Python binaries from versions 2.7.9 and 3.4 downloaded from python.org, but you will need to update pip!
 
-Pour installer pip, il suffit de se rendre sur la page de téléchargement suivante : **https://pip.pypa.io/en/stable/installing/**. Une fois le téléchargement éffectuer, exécuter la commande suivante dans votre terminal : `python get-pip.py`
+To install pip, simply go to the following download page: <https://pip.pypa.io/en/stable/installing/>. Once the download is complete, run the following command in your terminal: `python get-pip.py`
 
-Ce web service intéragit avec l'API de Google Translate. Pour que cette intéraction soit possible, il faut que vous vous munissiez d'une clé d'API.
+This web service interacts with the Google translate API. To make this interaction possible, you must have an API key.
 
-Pour commencer, il faut créer un fichier **config.py** et copier coller ce bout de code dedans `api_key = "clé"`. Ensuite, enregistrez ce fichier dans le dossier où il y a le programme principal **traducteur.py**.
+To begin, you need to create a **config.py** file and copy this piece of code into `api_key ="key"`. Then save this file to the folder where there is the main program **translator.py**.
 
-Dans le bout de code donné précedement, il faut biensur que le mot `clé` soit remplacé par la véritable clé de l'API Google Translate. Pour celà, vous devez préalablement avoir un compte Gmail. 
+In the piece of code given previously, it is necessary of course that the **key** word is replaced by the original key of the Google Translate API. To do that, you must have a Gmail account. If you don't have one, you can create once at this link: <https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ltmpl=default>.
 
-Si vous n'en avez pas, vous pouvez en créer un en cliquant sur ce lien : **https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ltmpl=default**.
+After that, click on the following link and log in with your Gmail IDs: <https://console.developers.google.com/cloud-resource-manager?Authuser=0>.
 
-Une fois votre compte créé, cliquez sur ce lien en vous identifiant avec votre compte Gmail : **https://console.developers.google.com/cloud-resource-manager?authuser=0**.
+Then click on **Create Project**.
 
-Ensuite, cliquez sur **Create Project**.
+Create a project name and click **Create**. Once the project is created, the **Developers Console** window opens by increasing the name of your project at the top left.
 
-Saisissez un nom de projet et cliquez sur **Create**. Une fois le projet créé, la fenêtre **Developers Console** s'ouvre en affichant le nom de votre projet en haut à gauche.
+Click on**APIs & Auth** and then on **APIs**.
 
-Cliquez sur **APIs & Auth** puis sur **APIs**.
+Find in the **Translate API** list which is under **Other Popular APIs**.
 
-Trouver dans la liste **Translate API** qui se trouve sous la rubrique **Other popular APIs**.
+Click on **Enable API**. Wait a few moments for the API activation.
 
-Cliquez sur **Enable API**. Patientez quelques instant le temps que l'API soit activée.
+Then click on **Project Billing Settings**.
 
-Ensuite, cliquez sur l'engrenage en haut à droite puis sur **Project billing settings**.
+Click on **Accept and start the free trial**. You will be redirected to the **Developers Console** window.
 
-Remplissez le formulaire de paiement puis cliquez sur **Accept and start free trial**. Vous serez redirigé vers la fenêtre **Developers Console**.
+In the menu, click on **APIs & Auth** then **Credentials**.
 
-Dans le menu, cliquez sur **APIs & auth** puis sur **Credentials**.
+Click on **Add crendentials API Key**.
 
-Cliquez sur **Add credentials API key**.
+Click **Server Key** and click **Create**.
 
-Cliquez sur **Server key** et cliquez sur **Create**.
+Your API key is now displayed! Copy it and paste it into your `config.py` file using Ctrl + V.
 
-Votre clé dAPI est maintenant affichée! Copiez la et collez la dans votre fichier `config.py` en utilisant Ctrl + V.
+The translator is now operational!
 
-Le traducteur est maintenant opérationel!
+<a name="native_list"></a>
 
-<a name="liste_natif"></a>
+### Exhaustive list of native Python packages to install
 
-### Liste exhaustive des paquets Python natif à installer
+| Packages   | Description   |
+|------------|---------------|
+| csv        | Used to extract and display the translation data in CSV format for historical purposes.
+| datetime   | Used to get the date and time of the translation.
+| json       | Used to manage the json format.
+| os         | Used to generate a random number.
+| sys        | Used to manage the encoding (special characters). |
 
-| Paquets   | Description   |
-|-----------|---------------|
-| csv       | Utilisé pour extraire puis pour afficher les données de la traduction au format CSV dans un but d'historisation.|
-| datetime  | Utilisé pour obtenir la date et l'heure de la traduction.|
-| json      | Utilisé pour gérer le format json.|
-| os        | Utilisé pour pour générer un nombre aléatoire.|
-| sys       | Utilisé pour géré l'encodage (caractères spéciaux).|
+<a name="non_native_list"></a>
 
-<a name="liste_non_natif"></a>
+### Exhaustive list of non-native Python packages to install
 
-### Liste exhaustive des paquets Python non natif à installer
+| Packages | Description |
+|----------|-------------|
+| bottle   | Used as a web application framework.
+| config   | Used to access the Google translate API key |
+| requests | Used to access the different variables returned by the pages.
 
-| Paquets | Description |
-|---------|-------------|
-| bottle  | Utilisé comme framework d'application web.|
-| config  | Utilisé pour accéder à la clé de l'API Google Translate.|
-| requests| Utilisé pour accéder au differentes variables retournée par les pages.|
+<a name="inputs"></a>
 
-<a name="entrees"></a>
+### Input parameters
 
-### Paramètre en entrée
+* A string written by the user on "/form".
+* A translation language chosen from the drop-down list by the user on "/form".
 
-* Une chaîne de caractères saisie par l'utilisateur sur "/formulaire".
-* Une langue de traduction choisie dans la liste déroulante par l'utilisateur sur "/formulaire".
+<a name="outputs"></a>
 
-<a name="sorties"></a>
+### Possible outputs
 
-### Sortie possible
+* If all runs properly
+  * The form to make a new translation.
+  * An HTML table composed of:
+    * the date and time of the translation.
+    * the original text.
+    * the language of translation.
+    * the translated text.
+    * the translation history.
+* If the answer from Google's server is different from 200:
+  * An error message.
+  * The form.
+* If you click on "translate" without first entering a string:
+  * An error message.
+  * The form.
 
-* Si tous s'exécute correctement
-  * Le formulaire pour effectuer une nouvelle traduction.
-  * Un tableau HTML composé :
-    * de la date de la traduction.
-    * de l'heure de la traduction.
-    * du texte original.
-    * de la langue de traduction.
-    * du texte traduit.
-    * de l'historique des traductions.
-* Si la réponse du serveur de Google est differente de 200 :
-  * Un message d'erreur.
-  * Le formulaire.
-* Si vous cliquez sur "traduire" sans avoir préalablement saisie une chaine de caractère :
-  * Un message d'erreur.
-  * Le formulaire.
+<a name="errors"></a>
 
-<a name="erreurs"></a>
+### Error management
 
-### Gestion des erreurs
-
-| Erreur | Gestion de l'erreur |
-|--------|---------------------|
-| Envoie d'une chaîne de caractères vide dans "/formulaire" | On renvoie l'utilisateur vers "/formulaire" avec le message suivant : _Erreur : veuillez saisir quelque chose à traduire._|
-| Réponse du serveur de Google differente de 200 | On renvoie à l'utilisateur un message d'erreur : _Erreur : connexion à l'API Google translate impossible._|
-| Time out | On renvoie à l'utilisateur un message d'erreur : _Erreur : à faire_|
+| Error | Error management |
+|-------|------------------|
+| Send an empty string into "/ form" | The user is returned to "/ form" with the following message: _Error: Please enter something to translate._ |
+| Google's server response different from 200 |  We send an error message to the user: _Erreur : connexion à l'API Google translate impossible._|
+| Time out | We send an error message to the user: _Erreur : à faire_|
 
 <a name="architecture"></a>
 
-### Schéma de l'architecture <a id="architecture"></a>
+### Architecture diagram <a id="architecture"></a>
 
 dépendances et pré-requis
 
@@ -166,20 +163,21 @@ dépendances et pré-requis
 * gestion des erreurs (paramètres incorrects, erreurs réseau tels que time out, absence de réponse du serveur Google,  panne réseau etc...)
 * schéma de l'architecture : use case, diagramme de séquence, diagramme d'activité et matrice des flux reseaux (URL et ports en entrée et en sortie, en gros, qui communique avec qui/quoi)
 
-<a name="diagramme"></a>
+<a name="chart"></a>
 
 #### Diagramme des flux
 
-![Diagramme des flux](https://github.com/AntoineNOUMA/pythonTranslator/blob/master/Capture.PNG "Diagramme des flux")
+![Flow chart](https://github.com/AntoineNOUMA/pythonTranslator/blob/master/Capture.PNG "Flow chart")
+![Flow chart](C:\Users\QS5611\Desktop\pythonTranslator\Capture.png "Flow chart")
 
-<a name="matrice"></a>
+<a name="matrix"></a>
 
-#### Matrice des flux
+#### Flow matrix
 
-| Acteurs | utilisateur | formulaire () (method="get") | formulaire () (method="post") | mon\_web\_service () | api\_google\_translate |
-| :-----: | :---------: | :--------------------------: | :---------------------------: | :------------------: | :--------------------: |
-| utilisateurs | - | Remplir formulaire | - | - | - |
-| formulaire1() (method="get")| - | - | Envoyer informations_formulaire | - | - |
-| formulaire2() (method="post")| Retourner formulaire | - | - |Envoyer informations_formulaire | - |
-| mon\_web\_service() | - | - | Afficher information\_mon\_web\_service | Extraire information JSON + Ecrire informations dans CSV | Envoyer information\_mon\_web\_service |
-| api\_google\_translate | - | - | - | Envoyer information_api | - |
+| Actors | user | show_form () (method="get") | post_form () (method="post") | translator() | google\_translate\_api |
+| :----: | :--: | :-------------------------: | :--------------------------: | :----------: | :--------------------: |
+| utilisateurs | - | Fill form | - | - | - |
+| show_form() (method="get")| - | - | Send form_data | - | - |
+| post_form() (method="post")| return form | - | - | Send form_data | - |
+| translator() | - | - | Display translator_data | Extract JSON_data + Write data in CSV | Send translator_data |
+| google\_translate\_api | - | - | - | Send api_data | - |

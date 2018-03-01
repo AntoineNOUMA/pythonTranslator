@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['affichage',['affichage',['../namespacetraducteur.html#abf8f73f73dfc4232956dafa2e83c6e8c',1,'traducteur']]]
+  ['config',['config',['../namespaceconfig.html',1,'']]],
+  ['config_2epy',['config.py',['../config_8py.html',1,'']]]
 ];

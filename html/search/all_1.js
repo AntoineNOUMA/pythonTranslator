@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['debug',['debug',['../namespacetraducteur.html#af36b22a6fdc9233e42d971da20354255',1,'traducteur']]],
-  ['dict1',['DICT1',['../namespacetraducteur.html#abf176a894e3b8fb6fa0a81f4b5b6d1d7',1,'traducteur']]],
-  ['dict2',['DICT2',['../namespacetraducteur.html#ae33607ae9148c898b8ceab5da47cd912',1,'traducteur']]],
-  ['documentation_20technique',['Documentation technique',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['debug',['debug',['../namespacetranslator.html#a7790d6dcd41305d1eabb75d8e7feb1a8',1,'translator']]],
+  ['dict1',['DICT1',['../namespacetranslator.html#a96f47f1ae114bbaef05fa850d8169abc',1,'translator']]],
+  ['dict2',['DICT2',['../namespacetranslator.html#a96ccb829b0e08596472181a38c367b7d',1,'translator']]]
 ];

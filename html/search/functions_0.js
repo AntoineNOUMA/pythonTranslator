@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['affichage',['affichage',['../namespacetraducteur.html#abf8f73f73dfc4232956dafa2e83c6e8c',1,'traducteur']]]
+  ['debug',['debug',['../namespacetranslator.html#a7790d6dcd41305d1eabb75d8e7feb1a8',1,'translator']]]
 ];

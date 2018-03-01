@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mon_5fweb_5fservice',['mon_web_service',['../namespacetraducteur.html#a6ee2ff2277437d3ae0e69dbc8c1546b2',1,'traducteur']]]
+  ['show_5fform',['show_form',['../namespacetranslator.html#ae769778f352df5884daa00fe19dd36fc',1,'translator']]],
+  ['show_5fhistory',['show_history',['../namespacetranslator.html#a142e26999ec859f12c61f7d5f1b48674',1,'translator']]]
 ];

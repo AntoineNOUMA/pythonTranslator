@@ -1,28 +1,29 @@
 # -*-coding:utf-8 -*-
 """
 DESCRIPTION
-Ce web service écrit en Python vous permet de traduire une chaîne de caractère saisi au clavier dans
-la langue de votre choix. Pour ce faire, une fois que vous avez saisie votre chaîne de caractère,
-que vous avez sélectionné la langue de traduction et que vous cliquez sur traduire, ce web service
-va intéroger l'API Google translate en lui envoyant en paramètre dans une URL la chaîne de
-caractère que vous avez saisie ainsi que la langue de traduction. Si la requête a bien été prise en
-compte par l'API de Google, elle nous renvoie une réponse contenant le texte traduit en format JSON.
-Nous récupérons donc cette information et nous enregistrons : la date de la traduction, l'heure de
-la traduction, la chaîne de caractère saisie, la langue de traduction ainsi que la chaîne de
-caractère traduite dans un fichier CSV. Ceci dans le but de vous restituer la traduction de votre
-saisie, mais aussi pour vous fournir un historique de toutes vos traductions. Ensuite, nous
-convertissons ce fichier CSV en un fichier HTML qui nous servira à vous afficher l'historique de vos
-traductions.
+This web service written in Python allows you to translate a string into the language of your choice.
+To do this, we ask you to fill out a form containing 2 inputs:
+    - An input to write a string.
+    - An input to select the language of translation.
+Once you have written your string, selected the language of translation and clicked on translate, this 
+web service will interoperate with the Google translate API by sending as a parameter in the URL the 
+string you have written and the language of translation. If the request has been taken by the Google 
+API, it sends back to the web service a response containing the translated text in a JSON format.
+The web service retrieves this information and records: the date and time of the translation, the 
+string written, the language of translation and the string translated into a CSV file. This in order 
+to give you the translation of your input but also to provide you an history of all your translations.
+As a result, the web service redirects you to the form. The latter re-displays the translation form as 
+well as the information contained in the CSV file which will give you the history of your translations 
+and offer you the possibility to perform several successive translations.
 """
 
 def debug(my_text):
-    """[Fonction permettant le debugage de l'application. Equivalente à un print, cette fonction donne
-    des informations au technicien sur les éventuelles erreurs générées]
+    """[Function allowing the debugging of the application. Equivalent to a print, this function gives
+    information to the technician about any errors generated]
     
     Arguments:
-        my_text {[str]} -- [Message à l'attention du technicien]
+        my_text {[str]} -- [Message to the technician]
     """
-
     if debug:
         print my_text
 
@@ -44,61 +45,54 @@ except ImportError, e:
     debug("Intern error")
     debug(e)
         
-#Permet de gérer l'encodage utf-8 pour éviter les problèmes d'accents etc...
+#Allows to manage the utf-8 encoding to avoid the problems of accents etc ...
 reload(sys)
 sys.setdefaultencoding('utf8')
-#VARIABLE GLOBAL
 
-##Dictionnaire permettant de stocker les variables du formulaire (chaîne de caractère à traduire et
-# langue de traduction).
+#GLOBAL VARIABLE
+#Dictionary to store the variables of the form (string to translate and
+#language translation).
 DICT1 = dict
-##Dictionnaire permettant de stocker les variables du web service (date de traduction, heure de
-# traduction, chaîne de caractère à traduire, langue de traduction, texte traduit).
+#Dictionary allowing to store the variables of the web service (date and time of translation,
+#string to translate, language of translation, translated text).
 DICT2 = dict
-##Variable permettant de stocker un token.
+##Variable to store a token.
 TOKEN = ""
 
-#Route par défaut
+#Default route
 @route('/')
 
 @route('/form/')
 @get('/form')
-def show_form():
-    """[Fonction générant un formulaire en méthode get avec une case pour saisir du texte,
-    une liste déroulante pour selectionner la langue à traduire et un
-    bouton pour envoyer l'information.]
+def display_form():
+    """[Function generating a form in get method with a box to enter text,
+    a drop-down list to select the language to be translated and a
+    button to send the information.]
     
     Decorators:
         get
         route
     """
-
     open("history.csv", "a")
     return'''
     <form action="/form" method="post">
-       
-        Votre texte à traduire: <input name="texte" type="text" />
-
-        <select name="langue" size="1">
-            <option value="fr">Français</option>
-            <option value="en">Anglais</option>
-            <option value="de">Allemand</option>
-            <option value="es">Espagnol</option>
-            <option value="it">Italien</option>
-            <option value="ko">Koréen</option>
+        Your text to translate: <input name="text" type="text" />
+        <select name="language" size="1">
+            <option value="fr">French</option>
+            <option value="en">English</option>
+            <option value="de">German</option>
+            <option value="es">Spanish</option>
+            <option value="it">Italian</option>
+            <option value="ko">Korean</option>
         </select>
-
-        <input type="submit" value="Traduire" />
-
-    </form>''' + '''
-    
-    Historique de vos traduction :''' + show_history()
+        <input type="submit" value="Translate" />
+    </form>''' + '''Translation history :''' + show_history()
 
 @route('/form/')
 @post('/form')
 def post_form():
-    """[Fonction vérifiant le formulaire en méthode post avec une case pour saisir du texte,
-    une liste déroulante pour selectionner la langue à traduire et un
+    """[Fonction vérifiant le formulaire en méthode post avec une case pour saisir du text,
+    une liste déroulante pour selectionner la language à traduire et un
     bouton pour envoyer l'information.]
     
     Decorators:
@@ -108,102 +102,80 @@ def post_form():
     Returns:
         [str] -- [Redirection vers mon_web_service]
     """
-
-    if request.forms.get('texte') == "":
-
+    if request.forms.get('text') == "":
         return "Erreur : veuillez saisir quelque chose à traduire.<br><br>" + '''
-        <form action="/form" method="post">
-                
-            Votre texte à traduire: <input name="texte" type="text" />
-
-            <select name="langue" size="1">
-                <option value="fr">Français</option>
-                <option value="en">Anglais</option>
-                <option value="de">Allemand</option>
-                <option value="es">Espagnol</option>
-                <option value="it">Italien</option>
-                <option value="ko">Koréen</option>
-            </select>
-
-            <input type="submit" value="Traduire" />
-
-        </form>''' + '''
-        
-        Historique de vos traduction :''' + show_history()
-
+        <form action="/form" method="post">    
+            Your text to translate: <input name="text" type="text" />
+        <select name="language" size="1">
+            <option value="fr">French</option>
+            <option value="en">English</option>
+            <option value="de">German</option>
+            <option value="es">Spanish</option>
+            <option value="it">Italian</option>
+            <option value="ko">Korean</option>
+        </select>
+        <input type="submit" value="Translate" />
+    </form>''' + '''Translation history :''' + show_history()
     global TOKEN
     TOKEN = os.urandom(24).encode('hex')
     global DICT1
-    DICT1 = {'texte':'', 'langue':''}
-    DICT1['texte'] = request.POST['texte']
-    DICT1['langue'] = request.POST['langue']
+    DICT1 = {'text':'', 'language':''}
+    DICT1['text'] = request.POST['text']
+    DICT1['language'] = request.POST['language']
     return redirect("/translator/"+str(TOKEN))
 
 @route('/translator/<token>')
 def translator(token):
-    """[Fonction qui interroge l'API Google translate.
-    Récupération des informations au format JSON.]
+    """[Function that queries the Google translate API.
+    Retrieving information in JSON format.]
     
     Decorators:
         route
     
     Arguments:
-        token {[str]} -- [clé chiffrée]
+        token {[str]} -- [encrypted key]
     
     Returns:
-        [str] -- [Message d'erreur si les deux clés chiffrées ne corespondent pas]
-        [str] -- [Message d'erreur si il y à une erreur de connexion avec l'API Google translate]
-        [str] -- [Redirection vers form]
+        [str] - [Error message if the two encrypted keys do not match]
+        [str] - [Error message if there is a connection error with the Google translate API]
+        [str] - [Redirect to form]
     """
-
     resp1 = request.url_args['token']
     if TOKEN != resp1:
         return "Error token"
-
     global DICT2
-
-    DICT2 = {'date':'', 'texte_original':'', 'langue':'', 'texte_traduit':''}
-
+    DICT2 = {'date':'', 'original_text':'', 'language':'', 'translated_text':''}
     date = datetime.datetime.now().isoformat()
-
-    DICT2['texte_original'] = DICT1['texte']
-    DICT2['langue'] = DICT1['langue']
+    DICT2['original_text'] = DICT1['text']
+    DICT2['language'] = DICT1['language']
     DICT2['date'] = date
-
     url = "https://translation.googleapis.com/language/translate/v2?key="
     key = config.api_key
-    url = url + key + DICT2['texte_original'] + "&target=" + DICT2['langue']
+    url = url + key + DICT2['original_text'] + "&target=" + DICT2['language']
     resp2 = requests.get(url)
-
     if resp2.status_code != 200:
-
-        return "Erreur : connexion à l'API Google translate impossible." + show_form()
-
+        return "Error: Can not connect to Google translate API" + display_form()
     traduction_json = resp2.json()
-    DICT2['texte_traduit'] = traduction_json['data']['translations'][0]['translatedText']
+    DICT2['translated_text'] = traduction_json['data']['translations'][0]['translatedText']
     write_history()
-    DICT1['texte'] = ""
-    DICT1['langue'] = ""
-
+    DICT1['text'] = ""
+    DICT1['language'] = ""
     return redirect("/form")
 
 def write_history():
-    """[Fonction qui permet l'écriture dans un fichier csv.]
+    """[Function that allows writing to a csv file.]
     """
-
     with open("history.csv", "a") as csvfile:
         writer = csv.writer(csvfile, delimiter=',', dialect="excel")
-        writer.writerow([DICT2['date'], DICT2['texte_original'],
-                         DICT2['langue'], DICT2['texte_traduit']])
+        writer.writerow([DICT2['date'], DICT2['original_text'], DICT2['language'], DICT2['translated_text']])
         csvfile.close()
 
 def show_history():
-    """[Fonction qui permet l'affichage du fichier csv.]
+    """[Function that allows the display of the csv file.]
     
     Returns:
-        [str] -- [Chaîne de caractère contenant toutes les informations de la traduction]
+        [str] -- [String containing all the information of the translation]
     """
-
     filename = 'history.csv'
     with open(filename, 'rb') as csvfile:
         reader = csv.reader(csvfile)
@@ -221,9 +193,8 @@ def show_history():
             sys.exit('file %s, line %d: %s' % (filename, reader.line_num, csverror))
 
 run(host='localhost', port=8080, debug=True)
-
 """
 TO DO
-- Optimiser les boucles(complexité)
-- faire des try except sur les flux (get, urlopen etc...)
+- Optimize loops (complexity)
+- Do some try except on the streams (get, urlopen etc ...)
 """

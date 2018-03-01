@@ -1,4 +1,5 @@
 var files_dup =
 [
-    [ "traducteur.py", "traducteur_8py.html", "traducteur_8py" ]
+    [ "config.py", "config_8py.html", null ],
+    [ "translator.py", "translator_8py.html", "translator_8py" ]
 ];

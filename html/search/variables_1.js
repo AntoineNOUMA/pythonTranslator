@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['token',['TOKEN',['../namespacetraducteur.html#a5ce3c3d87a30a1595df9dcea5be0fd21',1,'traducteur']]]
+  ['token',['TOKEN',['../namespacetranslator.html#a84edc3b23e63beb8afa26d046b834771',1,'translator']]]
 ];
