@@ -150,7 +150,7 @@ The translator is now operational!
 | Error | Error management |
 |-------|------------------|
 | Send an empty string into "/ form" | The user is returned to "/ form" with the following message: _Error: Please enter something to translate._ |
-| Google's server response different from 200 |  We send an error message to the user:_Error: Can not connect to the Google translate API._ |
+| Google's server response different from 200 |  We send an error message to the user: _Error: Can not connect to the Google translate API._ |
 | Time out | We send an error message to the user: _Error : to do._ |
 
 <a name="architecture"></a>
