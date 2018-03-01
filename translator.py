@@ -91,19 +91,19 @@ def display_form():
 @route('/form/')
 @post('/form')
 def post_form():
-    """[Fonction vérifiant le formulaire en méthode post avec une case pour saisir du text,
-    une liste déroulante pour selectionner la language à traduire et un
-    bouton pour envoyer l'information.]
+    """[Function checking the form in post method with a box to enter text,
+    a drop-down list to select the language to be translated and a
+    button to send the information]
     
     Decorators:
         post
         route
     
     Returns:
-        [str] -- [Redirection vers mon_web_service]
+        [str] -- [Redirection to translator]
     """
     if request.forms.get('text') == "":
-        return "Erreur : veuillez saisir quelque chose à traduire.<br><br>" + '''
+        return "Error: Please enter something to translate.<br><br>" + '''
         <form action="/form" method="post">    
             Your text to translate: <input name="text" type="text" />
         <select name="language" size="1">
