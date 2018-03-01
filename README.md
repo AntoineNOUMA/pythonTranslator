@@ -75,7 +75,7 @@ Then click on **Create Project**.
 
 Create a project name and click **Create**. Once the project is created, the **Developers Console** window opens by increasing the name of your project at the top left.
 
-Click on**APIs & Auth** and then on **APIs**.
+Click on **APIs & Auth** and then on **APIs**.
 
 Find in the **Translate API** list which is under **Other Popular APIs**.
 
