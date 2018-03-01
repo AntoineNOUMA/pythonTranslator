@@ -65,7 +65,7 @@ To install pip, simply go to the following download page: <https://pip.pypa.io/e
 
 This web service interacts with the Google translate API. To make this interaction possible, you must have an API key.
 
-To begin, you need to create a **config.py** file and copy this piece of code into `api_key ="key"`. Then save this file to the folder where there is the main program **translator.py**.
+To begin, you need to create a **config.py** file and copy this piece of code into `api_key = "key"`. Then save this file to the folder where there is the main program **translator.py**.
 
 In the piece of code given previously, it is necessary of course that the **key** word is replaced by the original key of the Google Translate API. To do that, you must have a Gmail account. If you don't have one, you can create once at this link: <https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ltmpl=default>.
 
