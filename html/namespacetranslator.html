@@ -98,8 +98,8 @@ $(document).ready(function(){initNavTree('namespacetranslator.html','');});
 Fonctions</h2></td></tr>
 <tr class="memitem:a7790d6dcd41305d1eabb75d8e7feb1a8"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetranslator.html#a7790d6dcd41305d1eabb75d8e7feb1a8">debug</a> (my_text)</td></tr>
 <tr class="separator:a7790d6dcd41305d1eabb75d8e7feb1a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae769778f352df5884daa00fe19dd36fc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetranslator.html#ae769778f352df5884daa00fe19dd36fc">show_form</a> ()</td></tr>
-<tr class="separator:ae769778f352df5884daa00fe19dd36fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b5e30c90cfbae9149bbc9c001a76080"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetranslator.html#a4b5e30c90cfbae9149bbc9c001a76080">display_form</a> ()</td></tr>
+<tr class="separator:a4b5e30c90cfbae9149bbc9c001a76080"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0a0342e6b7fa017bbb649a8a67450bb"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetranslator.html#ad0a0342e6b7fa017bbb649a8a67450bb">post_form</a> ()</td></tr>
 <tr class="separator:ad0a0342e6b7fa017bbb649a8a67450bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05039ab12407add485d20a4529ae461c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetranslator.html#a05039ab12407add485d20a4529ae461c">translator</a> (token)</td></tr>
@@ -112,13 +112,11 @@ Fonctions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a96f47f1ae114bbaef05fa850d8169abc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetranslator.html#a96f47f1ae114bbaef05fa850d8169abc">DICT1</a> = dict</td></tr>
-<tr class="memdesc:a96f47f1ae114bbaef05fa850d8169abc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dictionnaire permettant de stocker les variables du formulaire (chaîne de caractère à traduire et langue de traduction).  <a href="#a96f47f1ae114bbaef05fa850d8169abc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a96f47f1ae114bbaef05fa850d8169abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96ccb829b0e08596472181a38c367b7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetranslator.html#a96ccb829b0e08596472181a38c367b7d">DICT2</a> = dict</td></tr>
-<tr class="memdesc:a96ccb829b0e08596472181a38c367b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dictionnaire permettant de stocker les variables du web service (date de traduction, heure de traduction, chaîne de caractère à traduire, langue de traduction, texte traduit).  <a href="#a96ccb829b0e08596472181a38c367b7d">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a96ccb829b0e08596472181a38c367b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84edc3b23e63beb8afa26d046b834771"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetranslator.html#a84edc3b23e63beb8afa26d046b834771">TOKEN</a> = &quot;&quot;</td></tr>
-<tr class="memdesc:a84edc3b23e63beb8afa26d046b834771"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable permettant de stocker un token.  <a href="#a84edc3b23e63beb8afa26d046b834771">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a84edc3b23e63beb8afa26d046b834771"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to store a token.  <a href="#a84edc3b23e63beb8afa26d046b834771">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a84edc3b23e63beb8afa26d046b834771"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
@@ -137,13 +135,55 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">[Fonction permettant le debugage de l'application. Equivalente à un print, cette fonction donne
-des informations au technicien sur les éventuelles erreurs générées]
+<pre class="fragment">[Function allowing the debugging of the application. Equivalent to a print, this function gives
+information to the technician about any errors generated]
 
 Arguments:
-    my_text {[str]} -- [Message à l'attention du technicien]
+    my_text {[str]} -- [Message to the technician]
 </pre> 
-<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00018">18</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00020">20</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
+
+</div>
+</div>
+<a id="a4b5e30c90cfbae9149bbc9c001a76080"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b5e30c90cfbae9149bbc9c001a76080">&#9670;&nbsp;</a></span>display_form()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def translator.display_form </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">[Function generating a form in get method with a box to enter text,
+a drop-down list to select the language to be translated and a
+button to send the information.]
+
+Decorators:
+    get
+    route
+</pre> 
+<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00067">67</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacetranslator_a4b5e30c90cfbae9149bbc9c001a76080_cgraph.png" border="0" usemap="#namespacetranslator_a4b5e30c90cfbae9149bbc9c001a76080_cgraph" alt=""/></div>
+<map name="namespacetranslator_a4b5e30c90cfbae9149bbc9c001a76080_cgraph" id="namespacetranslator_a4b5e30c90cfbae9149bbc9c001a76080_cgraph">
+<area shape="rect" id="node2" href="namespacetranslator.html#a142e26999ec859f12c61f7d5f1b48674" title="translator.show_history" alt="" coords="207,5,363,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacetranslator_a4b5e30c90cfbae9149bbc9c001a76080_icgraph.png" border="0" usemap="#namespacetranslator_a4b5e30c90cfbae9149bbc9c001a76080_icgraph" alt=""/></div>
+<map name="namespacetranslator_a4b5e30c90cfbae9149bbc9c001a76080_icgraph" id="namespacetranslator_a4b5e30c90cfbae9149bbc9c001a76080_icgraph">
+<area shape="rect" id="node2" href="namespacetranslator.html#a05039ab12407add485d20a4529ae461c" title="translator.translator" alt="" coords="207,5,341,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -161,66 +201,24 @@ Arguments:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">[Fonction vérifiant le formulaire en méthode post avec une case pour saisir du texte,
-une liste déroulante pour selectionner la langue à traduire et un
-bouton pour envoyer l'information.]
+<pre class="fragment">[Function checking the form in post method with a box to enter text,
+a drop-down list to select the language to be translated and a
+button to send the information]
 
 Decorators:
     post
     route
 
 Returns:
-    [str] -- [Redirection vers mon_web_service]
+    [str] -- [Redirection to translator]
 </pre> 
-<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00091">91</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00093">93</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacetranslator_ad0a0342e6b7fa017bbb649a8a67450bb_cgraph.png" border="0" usemap="#namespacetranslator_ad0a0342e6b7fa017bbb649a8a67450bb_cgraph" alt=""/></div>
 <map name="namespacetranslator_ad0a0342e6b7fa017bbb649a8a67450bb_cgraph" id="namespacetranslator_ad0a0342e6b7fa017bbb649a8a67450bb_cgraph">
 <area shape="rect" id="node2" href="namespacetranslator.html#a142e26999ec859f12c61f7d5f1b48674" title="translator.show_history" alt="" coords="191,5,347,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ae769778f352df5884daa00fe19dd36fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae769778f352df5884daa00fe19dd36fc">&#9670;&nbsp;</a></span>show_form()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def translator.show_form </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<pre class="fragment">[Fonction générant un formulaire en méthode get avec une case pour saisir du texte,
-une liste déroulante pour selectionner la langue à traduire et un
-bouton pour envoyer l'information.]
-
-Decorators:
-    get
-    route
-</pre> 
-<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00065">65</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
-<div class="dynheader">
-Voici le graphe d'appel pour cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacetranslator_ae769778f352df5884daa00fe19dd36fc_cgraph.png" border="0" usemap="#namespacetranslator_ae769778f352df5884daa00fe19dd36fc_cgraph" alt=""/></div>
-<map name="namespacetranslator_ae769778f352df5884daa00fe19dd36fc_cgraph" id="namespacetranslator_ae769778f352df5884daa00fe19dd36fc_cgraph">
-<area shape="rect" id="node2" href="namespacetranslator.html#a142e26999ec859f12c61f7d5f1b48674" title="translator.show_history" alt="" coords="196,5,352,32"/>
-</map>
-</div>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacetranslator_ae769778f352df5884daa00fe19dd36fc_icgraph.png" border="0" usemap="#namespacetranslator_ae769778f352df5884daa00fe19dd36fc_icgraph" alt=""/></div>
-<map name="namespacetranslator_ae769778f352df5884daa00fe19dd36fc_icgraph" id="namespacetranslator_ae769778f352df5884daa00fe19dd36fc_icgraph">
-<area shape="rect" id="node2" href="namespacetranslator.html#a05039ab12407add485d20a4529ae461c" title="translator.translator" alt="" coords="196,5,331,32"/>
 </map>
 </div>
 
@@ -240,20 +238,20 @@ Voici le graphe des appelants de cette fonction :</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">[Fonction qui permet l'affichage du fichier csv.]
+<pre class="fragment">[Function that allows the display of the csv file.]
 
 Returns:
-    [str] -- [Chaîne de caractère contenant toutes les informations de la traduction]
+    [str] -- [String containing all the information of the translation]
 </pre> 
-<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00171">171</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00173">173</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacetranslator_a142e26999ec859f12c61f7d5f1b48674_icgraph.png" border="0" usemap="#namespacetranslator_a142e26999ec859f12c61f7d5f1b48674_icgraph" alt=""/></div>
 <map name="namespacetranslator_a142e26999ec859f12c61f7d5f1b48674_icgraph" id="namespacetranslator_a142e26999ec859f12c61f7d5f1b48674_icgraph">
-<area shape="rect" id="node2" href="namespacetranslator.html#ae769778f352df5884daa00fe19dd36fc" title="translator.show_form" alt="" coords="209,5,352,32"/>
-<area shape="rect" id="node4" href="namespacetranslator.html#ad0a0342e6b7fa017bbb649a8a67450bb" title="translator.post_form" alt="" coords="212,56,349,83"/>
-<area shape="rect" id="node3" href="namespacetranslator.html#a05039ab12407add485d20a4529ae461c" title="translator.translator" alt="" coords="400,5,535,32"/>
+<area shape="rect" id="node2" href="namespacetranslator.html#a4b5e30c90cfbae9149bbc9c001a76080" title="translator.display_form" alt="" coords="209,5,363,32"/>
+<area shape="rect" id="node4" href="namespacetranslator.html#ad0a0342e6b7fa017bbb649a8a67450bb" title="translator.post_form" alt="" coords="217,56,355,83"/>
+<area shape="rect" id="node3" href="namespacetranslator.html#a05039ab12407add485d20a4529ae461c" title="translator.translator" alt="" coords="411,5,545,32"/>
 </map>
 </div>
 
@@ -274,27 +272,27 @@ Voici le graphe des appelants de cette fonction :</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">[Fonction qui interroge l'API Google translate.
-Récupération des informations au format JSON.]
+<pre class="fragment">[Function that queries the Google translate API.
+Retrieving information in JSON format.]
 
 Decorators:
     route
 
 Arguments:
-    token {[str]} -- [clé chiffrée]
+    token {[str]} -- [encrypted key]
 
 Returns:
-    [str] -- [Message d'erreur si les deux clés chiffrées ne corespondent pas]
-    [str] -- [Message d'erreur si il y à une erreur de connexion avec l'API Google translate]
-    [str] -- [Redirection vers form]
+    [str] - [Error message if the two encrypted keys do not match]
+    [str] - [Error message if there is a connection error with the Google translate API]
+    [str] - [Redirect to form]
 </pre> 
-<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00126">126</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00128">128</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacetranslator_a05039ab12407add485d20a4529ae461c_cgraph.png" border="0" usemap="#namespacetranslator_a05039ab12407add485d20a4529ae461c_cgraph" alt=""/></div>
 <map name="namespacetranslator_a05039ab12407add485d20a4529ae461c_cgraph" id="namespacetranslator_a05039ab12407add485d20a4529ae461c_cgraph">
-<area shape="rect" id="node2" href="namespacetranslator.html#ae769778f352df5884daa00fe19dd36fc" title="translator.show_form" alt="" coords="193,5,336,32"/>
+<area shape="rect" id="node2" href="namespacetranslator.html#a4b5e30c90cfbae9149bbc9c001a76080" title="translator.display_form" alt="" coords="188,5,341,32"/>
 <area shape="rect" id="node4" href="namespacetranslator.html#a774633a53717d6adf90ee07fa458762a" title="translator.write_history" alt="" coords="188,56,341,83"/>
 <area shape="rect" id="node3" href="namespacetranslator.html#a142e26999ec859f12c61f7d5f1b48674" title="translator.show_history" alt="" coords="389,5,545,32"/>
 </map>
@@ -316,9 +314,9 @@ Voici le graphe d'appel pour cette fonction :</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">[Fonction qui permet l'écriture dans un fichier csv.]
+<pre class="fragment">[Function that allows writing to a csv file.]
 </pre> 
-<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00163">163</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00165">165</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
@@ -343,9 +341,7 @@ Voici le graphe des appelants de cette fonction :</div>
       </table>
 </div><div class="memdoc">
 
-<p>Dictionnaire permettant de stocker les variables du formulaire (chaîne de caractère à traduire et langue de traduction). </p>
-
-<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00053">53</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00055">55</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
 
 </div>
 </div>
@@ -361,9 +357,7 @@ Voici le graphe des appelants de cette fonction :</div>
       </table>
 </div><div class="memdoc">
 
-<p>Dictionnaire permettant de stocker les variables du web service (date de traduction, heure de traduction, chaîne de caractère à traduire, langue de traduction, texte traduit). </p>
-
-<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00056">56</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00058">58</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
 
 </div>
 </div>
@@ -379,9 +373,9 @@ Voici le graphe des appelants de cette fonction :</div>
       </table>
 </div><div class="memdoc">
 
-<p>Variable permettant de stocker un token. </p>
+<p>Variable to store a token. </p>
 
-<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00058">58</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
+<p class="definition">Définition à la ligne <a class="el" href="translator_8py_source.html#l00060">60</a> du fichier <a class="el" href="translator_8py_source.html">translator.py</a>.</p>
 
 </div>
 </div>

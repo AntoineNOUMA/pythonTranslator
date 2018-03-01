@@ -1,8 +1,8 @@
 var translator_8py =
 [
     [ "debug", "translator_8py.html#a7790d6dcd41305d1eabb75d8e7feb1a8", null ],
+    [ "display_form", "translator_8py.html#a4b5e30c90cfbae9149bbc9c001a76080", null ],
     [ "post_form", "translator_8py.html#ad0a0342e6b7fa017bbb649a8a67450bb", null ],
-    [ "show_form", "translator_8py.html#ae769778f352df5884daa00fe19dd36fc", null ],
     [ "show_history", "translator_8py.html#a142e26999ec859f12c61f7d5f1b48674", null ],
     [ "translator", "translator_8py.html#a05039ab12407add485d20a4529ae461c", null ],
     [ "write_history", "translator_8py.html#a774633a53717d6adf90ee07fa458762a", null ],
