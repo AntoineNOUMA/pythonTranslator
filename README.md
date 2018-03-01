@@ -114,7 +114,7 @@ The translator is now operational!
 | Packages | Description |
 |----------|-------------|
 | bottle   | Used as a web application framework. |
-| config   | Used to access the Google translate API key |
+| config   | Used to access the Google translate API key. |
 | requests | Used to access the different variables returned by the pages. |
 
 <a name="inputs"></a>
@@ -151,7 +151,7 @@ The translator is now operational!
 |-------|------------------|
 | Send an empty string into "/ form" | The user is returned to "/ form" with the following message: _Error: Please enter something to translate._ |
 | Google's server response different from 200 |  We send an error message to the user:_Error: Can not connect to the Google translate API._ |
-| Time out | We send an error message to the user: _Error : to do_ |
+| Time out | We send an error message to the user: _Error : to do._ |
 
 <a name="architecture"></a>
 
