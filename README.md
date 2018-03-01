@@ -10,7 +10,7 @@
 * [Input parameters](#inputs)
 * [Possible outputs](#outputs)
 * [Error management](#errors)
-* [Architecture diagram](#architecture)
+* [Architecture diagrams](#architecture)
   * [Flow chart](#chart)
   * [Flow matrix](#matrix)
 
@@ -155,7 +155,7 @@ The translator is now operational!
 
 <a name="architecture"></a>
 
-### Architecture diagram <a id="architecture"></a>
+### Architecture diagrams <a id="architecture"></a>
 
 <a name="chart"></a>
 
