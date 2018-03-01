@@ -101,10 +101,10 @@ The translator is now operational!
 
 | Packages   | Description   |
 |------------|---------------|
-| csv        | Used to extract and display the translation data in CSV format for historical purposes.
-| datetime   | Used to get the date and time of the translation.
-| json       | Used to manage the json format.
-| os         | Used to generate a random number.
+| csv        | Used to extract and display the translation data in CSV format for historical purposes. |
+| datetime   | Used to get the date and time of the translation. |
+| json       | Used to manage the json format. |
+| os         | Used to generate a random number. |
 | sys        | Used to manage the encoding (special characters). |
 
 <a name="non_native_list"></a>
@@ -113,9 +113,9 @@ The translator is now operational!
 
 | Packages | Description |
 |----------|-------------|
-| bottle   | Used as a web application framework.
+| bottle   | Used as a web application framework. |
 | config   | Used to access the Google translate API key |
-| requests | Used to access the different variables returned by the pages.
+| requests | Used to access the different variables returned by the pages. |
 
 <a name="inputs"></a>
 
@@ -150,8 +150,8 @@ The translator is now operational!
 | Error | Error management |
 |-------|------------------|
 | Send an empty string into "/ form" | The user is returned to "/ form" with the following message: _Error: Please enter something to translate._ |
-| Google's server response different from 200 |  We send an error message to the user:_Error: Can not connect to the Google translate API._|
-| Time out | We send an error message to the user: _Error : to do_|
+| Google's server response different from 200 |  We send an error message to the user:_Error: Can not connect to the Google translate API._ |
+| Time out | We send an error message to the user: _Error : to do_ |
 
 <a name="architecture"></a>
 
