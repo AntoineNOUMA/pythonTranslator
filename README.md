@@ -165,7 +165,7 @@ dépendances et pré-requis
 
 <a name="chart"></a>
 
-#### Diagramme des flux
+#### Flow chart
 
 ![Flow chart](https://github.com/AntoineNOUMA/pythonTranslator/blob/master/Capture.PNG "Flow chart")
 ![Flow chart](C:\Users\QS5611\Desktop\pythonTranslator\Capture.png "Flow chart")
