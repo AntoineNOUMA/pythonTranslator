@@ -176,7 +176,7 @@ dépendances et pré-requis
 
 | Actors | user | show_form () (method="get") | post_form () (method="post") | translator() | google\_translate\_api |
 | :----: | :--: | :-------------------------: | :--------------------------: | :----------: | :--------------------: |
-| utilisateurs | - | Fill form | - | - | - |
+| user | - | Fill form | - | - | - |
 | show_form() (method="get")| - | - | Send form_data | - | - |
 | post_form() (method="post")| return form | - | - | Send form_data | - |
 | translator() | - | - | Display translator_data | Extract JSON_data + Write data in CSV | Send translator_data |
