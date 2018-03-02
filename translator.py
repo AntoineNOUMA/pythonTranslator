@@ -180,15 +180,15 @@ def show_history():
     with open(filename, 'rb') as csvfile:
         reader = csv.reader(csvfile)
         try:
-            chaine = ""
+            string = ""
             for row in reader:
-                chaine += "<tr>"
+                string += "<tr>"
                 for column in row:
-                    chaine += "<td>"+str(column)+"</td>"
-                chaine += "</tr>"
-            if chaine != "":
-                chaine = "<table>"+chaine+"</table>"
-            return chaine
+                    string += "<td>"+str(column)+"</td>"
+                string += "</tr>"
+            if string != "":
+                string = "<table>"+string+"</table>"
+            return string
         except csv.Error as csverror:
             sys.exit('file %s, line %d: %s' % (filename, reader.line_num, csverror))
 
