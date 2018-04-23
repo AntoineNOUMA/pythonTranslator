@@ -28,6 +28,12 @@ def debug(my_text):
         print my_text
 
 try:
+    import bottle
+except ImportError, e:
+    debug("Native error")
+    debug(e)
+
+try:
     from bottle import get, post, redirect, request, route, run
 except ImportError, e:
     debug("Bottle error")
@@ -44,7 +50,9 @@ try:
 except ImportError, e:
     debug("Intern error")
     debug(e)
-        
+
+app = application = bottle.Bottle()
+
 #Allows to manage the utf-8 encoding to avoid the problems of accents etc ...
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -192,4 +200,5 @@ def show_history():
         except csv.Error as csverror:
             sys.exit('file %s, line %d: %s' % (filename, reader.line_num, csverror))
 
-run(host='localhost', port=8080, debug=True)
+if __name__=='__main__':
+    bottle.run(host='127.0.0.1', port=8080, debug=True)
